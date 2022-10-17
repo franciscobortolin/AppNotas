@@ -5,7 +5,7 @@
 <div>
         <h1>My notes</h1>
         <button (click)="crearNuevaNota()">Create note</button>
-        <a href="" style="padding-left: 10px">Show archived notes</a>
+        <button (click)="cambiarModo()" style="margin-left: 10px">{{ modoActivas == true ? 'Show archived notes' : 'Go back to active notes' }}</button>
 </div>
 <div></div>
 
@@ -32,7 +32,21 @@
 
 <!-- Mostrar notas archivadas -->
 <ng-template [ngIf]="modoActivas==false">
-    <div>
+    
+    <div class="row">
+    <div *ngFor="let nota of notasArchivadas; index as n" class="card">
+        <div class="container">
+            <img src="assets/nota-adhesiva.png" alt="" width="100" height="150">
+            <h4><b>{{nota.titulo}}</b></h4>
+            <p>{{nota.contenido}}</p>
+            <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
 
+            <button (click)="activarNota(nota.idNota,nota)">Activate</button>
+            <button>Edit</button>
+            <button (click)="borrarNota(nota.idNota)">Delete</button>
+
+        </div>
     </div>
+    </div>
+
 </ng-template>

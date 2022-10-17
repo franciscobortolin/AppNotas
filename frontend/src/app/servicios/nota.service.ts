@@ -15,6 +15,9 @@ export class NotasService {
     pedirNotasActivas() {
 		return this.http.get(this.URL + 'notas/activos');
 	}
+    pedirNotasArchivadas() {
+		return this.http.get(this.URL + 'notas/archivados');
+	}
     guardarNuevaNota(nota:any){
         return this.http.post(this.URL + 'notas', nota);
     }
@@ -23,6 +26,9 @@ export class NotasService {
     }
     archivarNota(idNota:any,nota:any){
         return this.http.put(this.URL + 'notas/'+idNota+'/archivar',nota);
+    }
+    activarNota(idNota:any,nota:any){
+        return this.http.put(this.URL + 'notas/'+idNota+'/activar',nota);
     }
     
 }
