@@ -40,6 +40,24 @@ public class NotaServicio {
         n.setUltimaFechaActualizacion(java.sql.Date.valueOf(java.time.LocalDate.now()));
         return repositorio.save(n);
     }
+    public Nota archivar(Nota n){
+        Optional<Nota> instanciaBD=repositorio.findById(n.getIdNota());
+        if(!instanciaBD.isPresent()){
+            throw new RuntimeException("El id no existe");
+        }
+        n.setUltimaFechaActualizacion(java.sql.Date.valueOf(java.time.LocalDate.now()));
+        n.setArchivado(true);
+        return repositorio.save(n);
+    }
+    public Nota activar(Nota n){
+        Optional<Nota> instanciaBD=repositorio.findById(n.getIdNota());
+        if(!instanciaBD.isPresent()){
+            throw new RuntimeException("El id no existe");
+        }
+        n.setUltimaFechaActualizacion(java.sql.Date.valueOf(java.time.LocalDate.now()));
+        n.setArchivado(false);
+        return repositorio.save(n);
+    }
     public Nota eliminar(Long id){
         Optional<Nota> instanciaBD=repositorio.findById(id);
         if(!instanciaBD.isPresent()){

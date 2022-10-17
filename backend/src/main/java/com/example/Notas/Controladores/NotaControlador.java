@@ -16,7 +16,7 @@ import com.example.Notas.Servicios.NotaServicio;
 
 @RestController
 @RequestMapping("/notas")
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class NotaControlador {
     @Autowired
     private NotaServicio servicio;
@@ -48,6 +48,24 @@ public class NotaControlador {
             throw new RuntimeException("El ID no coincide");
         }
         return servicio.actualizar(n);
+    }
+
+    //Archiva una nota
+    @PutMapping("/{id}/archivar")
+    public Nota archivar(@PathVariable Long id, @RequestBody Nota n){
+        if(n.getIdNota() != id){
+            throw new RuntimeException("El ID no coincide");
+        }
+        return servicio.archivar(n);
+    }
+
+    //Activa una nota
+    @PutMapping("/{id}/activar")
+    public Nota activar(@PathVariable Long id, @RequestBody Nota n){
+        if(n.getIdNota() != id){
+            throw new RuntimeException("El ID no coincide");
+        }
+        return servicio.activar(n);
     }
 
     //Eliminar una nota

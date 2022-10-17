@@ -1,0 +1,12 @@
+<h1>Create new note</h1>
+<div>
+    <h5 style="display:inline-block; padding-right:60px">Title</h5>
+    <input id="titulo" [(ngModel)]="titulo" type="text">
+</div>
+<div>
+    <h5 style="display:inline-block; padding-right:10px">Note content</h5>
+    <input id="contenido" [(ngModel)]="contenido" type="text" size="100" style="height:150px">
+</div>
+
+<button mat-button mat-dialog-close>Cancel</button>
+<button (click)="guardarNuevaNota()">Save</button>

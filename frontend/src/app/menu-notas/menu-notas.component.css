@@ -1,0 +1,45 @@
+h1 {
+    margin: 10px;
+    display: inline-block;
+    }
+
+.card {
+    
+    display: inline-block;
+    overflow: hidden;
+    background:#d1d0c9;
+    padding: 1rem;
+    margin: 10px 1rem;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.container {
+  position:relative;
+  padding: 2px 16px;
+}
+
+.container img{
+    float:left;
+    vertical-align: middle;
+    padding-right: 30px;
+}
+
+.container button{
+  display: inline-block;
+  margin: 5px;
+}
+
+.row {
+    width:100%;
+    height:50%;
+}
+.row div {
+    width:45%;
+    height:100%;
+
+}
+
