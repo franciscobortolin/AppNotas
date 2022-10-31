@@ -16,8 +16,8 @@ export class MenuNotasComponent implements OnInit {
     ) 
   {}
 
-  notasActivas:any={};
-  notasArchivadas:any={};
+  notasActivas:any=[];
+  notasArchivadas:any=[];
 
   modoActivas:boolean=true;
 
@@ -91,5 +91,8 @@ export class MenuNotasComponent implements OnInit {
 			
 			
 		});
+  }
+  abrirEditorNota(){
+    console.log("Falta crear funcionalidad de editar");
   }
 }

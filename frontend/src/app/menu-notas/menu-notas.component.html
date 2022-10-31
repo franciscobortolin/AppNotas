@@ -21,7 +21,7 @@
             <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
 
             <button (click)="archivarNota(nota.idNota,nota)">Archive</button>
-            <button>Edit</button>
+            <button (click)="abrirEditorNota()">Edit</button>
             <button (click)="borrarNota(nota.idNota)">Delete</button>
 
         </div>
@@ -42,7 +42,7 @@
             <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
 
             <button (click)="activarNota(nota.idNota,nota)">Activate</button>
-            <button>Edit</button>
+            <button (click)="abrirEditorNota()">Edit</button>
             <button (click)="borrarNota(nota.idNota)">Delete</button>
 
         </div>

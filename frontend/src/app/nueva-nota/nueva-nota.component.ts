@@ -10,6 +10,7 @@ import { NotasService } from '../servicios/nota.service';
 export class NuevaNotaComponent implements OnInit {
 
   nuevaNota: any={};
+  modoCrear:boolean = true;
   titulo:any;
   contenido:any;
   constructor(private servicioNotas: NotasService,
