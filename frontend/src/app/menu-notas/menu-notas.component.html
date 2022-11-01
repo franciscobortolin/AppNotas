@@ -2,30 +2,38 @@
     <link rel="stylesheet" href="menu-notas.component.css">
   </head>
 
-<div>
+
+<body>
+<div style="border-bottom: 3px solid lightgray;">
         <h1>My notes</h1>
         <button (click)="crearNuevaNota()">Create note</button>
         <button (click)="cambiarModo()" style="margin-left: 10px">{{ modoActivas == true ? 'Show archived notes' : 'Go back to active notes' }}</button>
 </div>
 <div></div>
 
+
 <!-- Mostrar notas activas -->
 <ng-template [ngIf]="modoActivas==true">
     
-    <div class="row">
-    <div *ngFor="let nota of notasActivas; index as n" class="card">
-        <div class="container">
-            <img src="assets/nota-adhesiva.png" alt="" width="100" height="150">
-            <h4><b>{{nota.titulo}}</b></h4>
-            <p>{{nota.contenido}}</p>
-            <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
+    <div class="wrapper">
+    <li *ngFor="let nota of notasActivas; index as n" class="note">
+            <!-- <div class="imagen">
+                <img src="assets/nota-adhesiva.png" alt="" width="100" height="150">
+            </div> -->
+                <div class="details">
+                    <h4><b>{{nota.titulo}}</b></h4>
+                    <span>{{nota.contenido}}</span>
+                </div>
+                <div class="bottom-content">
+                    <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
+                    <div class="botones">
+                        <button  (click)="archivarNota(nota.idNota,nota)">Archive</button>
+                        <button  (click)="abrirEditorNota()">Edit</button>
+                        <button  (click)="borrarNota(nota.idNota)">Delete</button>
+                    </div>      
+                </div>
 
-            <button (click)="archivarNota(nota.idNota,nota)">Archive</button>
-            <button (click)="abrirEditorNota()">Edit</button>
-            <button (click)="borrarNota(nota.idNota)">Delete</button>
-
-        </div>
-    </div>
+    </li>
     </div>
 
 </ng-template>
@@ -33,20 +41,27 @@
 <!-- Mostrar notas archivadas -->
 <ng-template [ngIf]="modoActivas==false">
     
-    <div class="row">
-    <div *ngFor="let nota of notasArchivadas; index as n" class="card">
-        <div class="container">
-            <img src="assets/nota-adhesiva.png" alt="" width="100" height="150">
-            <h4><b>{{nota.titulo}}</b></h4>
-            <p>{{nota.contenido}}</p>
-            <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
-
-            <button (click)="activarNota(nota.idNota,nota)">Activate</button>
-            <button (click)="abrirEditorNota()">Edit</button>
-            <button (click)="borrarNota(nota.idNota)">Delete</button>
-
+    <div class="wrapper">
+        <li *ngFor="let nota of notasArchivadas; index as n" class="note">
+                <!-- <div class="imagen">
+                    <img src="assets/nota-adhesiva.png" alt="" width="100" height="150">
+                </div> -->
+                    <div class="details">
+                        <h4><b>{{nota.titulo}}</b></h4>
+                        <span>{{nota.contenido}}</span>
+                    </div>
+                    <div class="bottom-content">
+                        <p>Last edited: {{nota.ultimaFechaActualizacion.slice(0, nota.ultimaFechaActualizacion.indexOf('T'))}}</p>
+                        <div class="botones">
+                            <button  (click)="activarNota(nota.idNota,nota)">Activate</button>
+                            <button  (click)="abrirEditorNota()">Edit</button>
+                            <button  (click)="borrarNota(nota.idNota)">Delete</button>
+                        </div>      
+                    </div>
+    
+        </li>
         </div>
-    </div>
-    </div>
 
 </ng-template>
+
+</body>

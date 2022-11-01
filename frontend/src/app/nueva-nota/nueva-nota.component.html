@@ -1,11 +1,11 @@
 <h1>Create new note</h1>
 <div>
-    <h5 style="display:inline-block; padding-right:60px">Title</h5>
-    <input id="titulo" [(ngModel)]="titulo" type="text">
+    <h5 style="display:inline-block; padding-right:60px">Title</h5> 
+    <input id="titulo" [(ngModel)]="titulo" type="text" placeholder="Insert your note title here" style="width:300px">
 </div>
 <div>
     <h5 style="display:inline-block; padding-right:10px">Note content</h5>
-    <input id="contenido" [(ngModel)]="contenido" type="text" size="100" style="height:150px">
+    <textarea id="contenido" [(ngModel)]="contenido" type="text" rows="4" cols="50"  style="resize:none width:600px heigth:1000px" placeholder="Insert your note content here"></textarea>
 </div>
 
 <button mat-button mat-dialog-close>Cancel</button>

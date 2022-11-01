@@ -14,6 +14,7 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idNota;
     private String titulo;
+    @Column(columnDefinition="TEXT")
     private String contenido;
     private Date ultimaFechaActualizacion;
     private Boolean archivado;

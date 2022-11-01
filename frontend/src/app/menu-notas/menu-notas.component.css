@@ -1,45 +1,72 @@
 h1 {
     margin: 10px;
     display: inline-block;
-    }
-
-.card {
-    
-    display: inline-block;
-    overflow: hidden;
-    background:#d1d0c9;
-    padding: 1rem;
-    margin: 10px 1rem;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+html,body{
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  background-color: rgb(235, 231, 46);
+  overflow: auto;
+}
+.wrapper{
+  width: 1200px;
+  margin:40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(auto-fill,256px); */
+  gap:15px
 }
 
-
-.container {
-  position:relative;
-  padding: 2px 16px;
+.note:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+.wrapper li{
+  height: 250px;
+  min-width: 500px;
+  max-width: 500px;
+  background: #fff;
+  list-style: none;
+  border-radius: 5px;
+  padding: 5px 10px 10px;
+  justify-content: center;
+  word-wrap: break-word;
+  text-overflow: ellipsis
 }
 
-.container img{
-    float:left;
-    vertical-align: middle;
-    padding-right: 30px;
+.wrapper .note{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-overflow: ellipsis
 }
 
-.container button{
-  display: inline-block;
-  margin: 5px;
+.note h4{
+  display: flex;
+  align-self: center;
+  font-size: 22px;
+  font-weight: 500;
+  border-bottom: 1px solid lightgray;
+}
+.note span{
+  display:block;
+  margin-top: 1px;
+  font-size:12px;
+  white-space: nowrap;
+  overflow: clip;
+  text-overflow: ellipsis;
 }
 
-.row {
-    width:100%;
-    height:50%;
+.bottom-content{
+  padding-top: 7px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
 }
-.row div {
-    width:45%;
-    height:100%;
 
+.bottom-content p{
+  font-size: 10px;
 }
-
